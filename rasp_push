@@ -1,0 +1,8 @@
+#!/bin/bash
+
+HOST="pi@raspberrypi"
+REMOTE_DIR="$(dirs)"
+
+ssh -q ${HOST} mkdir -p ${REMOTE_DIR}
+
+rsync -avzh -e ssh --delete $(pwd)/ pi@raspberrypi:${REMOTE_DIR}

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    echo "ERROR: No python file specified"
+    exit 1
+fi
+
+HOST="pi@raspberrypi"
+REMOTE_DIR="$(dirs)"
+
+ssh -q ${HOST} python ${REMOTE_DIR}/$1
